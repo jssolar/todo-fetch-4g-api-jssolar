@@ -111,15 +111,23 @@ const Todo = () => {
   const handleDeleteAll = () => {
     fetch(`${url}`, {
       method: 'DELETE',
-    });
+    }).then((response)=>{
+      console.log(response)
+    }).then((data)=>{
+      console.log(data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+    ;
     setTask([]);
   };
 
   return (
     <>
       <div className='container contenedor-todo'>
+        <h3 className='container text-center pb-3'>Todolist-fetch-jsolar</h3>
         <div className="container col-md-8">
-          <form className="form-control container" onSubmit={handleSubmitTask}>
+          <form className="form-control container form-task" onSubmit={handleSubmitTask}>
             <input className='input-texto container' type="text" name="input" value={text} onChange={handleChange} placeholder="Agregar una tarea" />
             <ul className="list-group-item container d-flex flex-column align-content-end">
               {
@@ -146,7 +154,7 @@ const Todo = () => {
         </div>
         <div className="col-md-8 container mt-5 mb-3 ">
           
-          <form className="form-control bg-dark " onSubmit={handleSubmitUser}>
+          <form className="form-control form-user " onSubmit={handleSubmitUser}>
             <input className='input-texto container' type="text" name="user" value={user} onChange={handleChangeUser} placeholder="Agregar un usuario" />
             <button className='btn btn-info boton-submit container mt-2' type="submit">Crear Usuario</button>
           </form>

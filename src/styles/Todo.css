@@ -88,13 +88,12 @@ li{
 
 }
 
-.elimitar-todos:hover{
+.eliminar-todos:hover{
   filter: drop-shadow(0 0 2em #d80a0aaa);
   background-color: red;
   transition: 0.5s ease;
   border-style: none;
-
-}
+  }
 
 
 
@@ -108,4 +107,16 @@ li{
   filter: drop-shadow(0 0 2em #48ff00) !important;
   background-color: rgb(55, 255, 0);
   transition: 0.5s ease;
+}
+
+.form-task{
+  border: none;
+  background-color: #222222;
+  padding: 1rem;
+}
+
+.form-user{
+  border: none;
+  background-color: #222222;
+  padding: 1rem;  
 }
