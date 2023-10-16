@@ -15,15 +15,18 @@
   padding: 2rem;
   width: 600px;
   max-width: auto;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 16px
 }
 
 .input-texto{
   width: 100%;
   border-radius: .5rem;
   border: none;
+  border-style: none;
   justify-content: center;
-  background-color: rgb(31, 202, 205);
+  background-color: rgba(0, 0, 0, 0.868);
   padding: 5px 15px;
+  color: #668c14;
 }
 
 ul{
@@ -53,7 +56,7 @@ li{
 .boton-editar{
   cursor: pointer;
   margin-left: 0;
-  background-color:rgba(0, 255, 234, 0.901);
+  background-color: #107b85;
   font-size: 2.5rem;
   color: black;
   margin: .4rem  0px  0px;
@@ -62,10 +65,17 @@ li{
   border-top-left-radius: 0 !important;
 }
 
+.boton-editar:hover{
+  background-color: yellowgreen;
+}
+.boton-eliminar:hover{
+  background-color: rgb(255, 0, 0);
+}
+
 .boton-eliminar{
   cursor: pointer;
   margin-left: 0;
-  background-color:rgb(255, 0, 0);
+  background-color: #107b85;
   font-size: 2.5rem;
   color: black;
   margin: .4rem 0px 0px 0px;
@@ -74,17 +84,28 @@ li{
   border-top-left-radius: 0 !important;
   border-top-right-radius: .4rem;
   border-bottom-right-radius: .4rem;
+  border-style: none;
+
 }
 
 .elimitar-todos:hover{
   filter: drop-shadow(0 0 2em #d80a0aaa);
   background-color: red;
   transition: 0.5s ease;
+  border-style: none;
+
 }
 
 
 
 
 .boton-submit{
-  background-color: #e3c650 !important;
+  background-color: #668c14 !important;
+  border-style: none;
+  
+}
+.boton-submit:hover{
+  filter: drop-shadow(0 0 2em #48ff00) !important;
+  background-color: rgb(55, 255, 0);
+  transition: 0.5s ease;
 }
