@@ -11,6 +11,8 @@ const Todo = () => {
   const [task, setTask] = useState([])
   const [user, setUser] = useState('') // Cambiado de null a ''
 
+  //-----< traaer las tareas de usuario >------------------------------------->
+
   const getTask = () => {
     fetch(`${url}`)
       .then((response) => response.json())
@@ -29,6 +31,8 @@ const Todo = () => {
 
 
 
+
+//-----< agregar todo >-------------------------------------->
 
   const handleSubmitTask = (e) => {
     e.preventDefault()
@@ -56,6 +60,8 @@ const Todo = () => {
     }
   };
 
+
+  //-----< crear usuario, si no existe, haciendo click en boton >------------------------>
   const handleSubmitUser = (e) => {
     e.preventDefault()
     if (user.trim() !== "") { // Cambiado de text a user
@@ -86,18 +92,22 @@ const Todo = () => {
     setUser(e.target.value) // Cambiado de setUser a setUser
   }
 
+
+  //-----< editar tarea >-------------------------------->
   const handleEdit = (index, updatedText) => {
     const newTask = [...task];
     newTask[index] = updatedText;
     setTask(newTask);
   };
 
+
+  //-----< eliminar tarea >-------------------------------->
   const handleDelete = (index) => {
     const newTask = task.filter((_, i) => i !== index);
     setTask(newTask);
   };
 
-  
+//-----eliminar usuario y tareas >------------------------------>  
   const handleDeleteAll = () => {
     fetch(`${url}`, {
       method: 'DELETE',
