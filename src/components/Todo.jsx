@@ -124,11 +124,33 @@ const Todo = () => {
 
 
   //-----< eliminar tarea >-------------------------------->
-  const handleDelete = (index) => {
-    const newTask = task.filter((_, i) => i !== index);
-    setTask(newTask);
-  };
 
+  const handleDeleteTask = (index) => {
+    let prevTasks = [...task];
+    prevTasks = prevTasks.filter((id, itemIndex) => itemIndex !== index);
+  
+    fetch(`${url}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(prevTasks)
+    })
+      .then((response) => {
+        setText('');
+        // setTask([...newTodo]);
+        console.log(response);
+      })
+      .then(() => {
+        getTask();
+      })
+      .catch((error) => {
+        console.error('Error al agregar una tarea:', error);
+      });
+  }
+  
+
+  
 //-----eliminar usuario y tareas >------------------------------>  
   const handleDeleteAll = () => {
     fetch(`${url}`, {
@@ -165,7 +187,7 @@ const Todo = () => {
                           }
                         }}
                       />
-                      <RiDeleteBin7Fill className="boton-eliminar" onClick={() => handleDelete(index)} />
+                      <RiDeleteBin7Fill className="boton-eliminar" onClick={() => handleDeleteTask(index)} />
                     </div>
                   )
                 })
